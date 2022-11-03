@@ -1,6 +1,12 @@
 package com.example.ooppractice2;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 /**
  * 요구사항
@@ -15,9 +21,15 @@ public class GradeCalculatorTest {
     // 이수한 과목을 전달하여 평균학점 계산 요청 ---> 학점 계산기 --> (학점수 + 교과목 평점)의 합계 ---> 과목(코스)
     //                                                            --> 수강신청 총 학점 수           --->  과목(코스)
 
-
+    @DisplayName("평균 학점을 계산한다.")
     @Test
     void calculateGradeTest() {
+        List<Course> courses = Arrays.asList(new Course("OOP", 3, "A+"),
+                new Course("자료구조", 3, "A+"));
 
+        GradeCalculator gradeCalculator = new GradeCalculator(courses);
+        double gradeResult = gradeCalculator.calculate();
+
+        assertThat(gradeResult).isEqualTo(4.5);
     }
 }
