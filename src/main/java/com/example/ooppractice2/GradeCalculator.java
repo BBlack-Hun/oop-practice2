@@ -12,6 +12,10 @@ public class GradeCalculator {
         this.courses = new Courses(courses);
     }
 
+    public GradeCalculator(Courses courses) {
+        this.courses = courses;
+    }
+
     /**
      * 요구사항
      * 평균학점 계산 방법 = (학점수 * 교과목 평점)의합계 / 수강신청 총 학점 수
